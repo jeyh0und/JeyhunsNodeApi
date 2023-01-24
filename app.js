@@ -15,13 +15,17 @@ app.get("/joke", (req, res) => {
         response.on("data", (data) => {
             res.send(JSON.parse(data))
         })
-    }).on("Error", (err)=>{
+    }).on("Error", (err) => {
         console.log("There was an error " + err.message)
     })
 })
 
-app.get("/", (req, res) => {
+app.get("/instruments", (req, res) => {
     res.send(instrument)
+})
+
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/index.html")
 })
 
 
